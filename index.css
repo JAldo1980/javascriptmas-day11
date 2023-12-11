@@ -1,0 +1,109 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(/background-swiss.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2000;
+}
+
+:root {
+  --white: #fff;
+  --red: #ff0002;
+  --height: calc((3 / 16) * 100%);
+  --width: calc((5 / 8) * 100%);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flag {
+  background: var(--red);
+  width: 10rem;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+
+.cross {
+  background: var(--white);
+  height: var(--height);
+  width: var(--width);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.cross1 {
+  transform: translate(-50%, -50%);
+}
+
+.cross2 {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.cloud-1 {
+  position: absolute;
+  z-index: 2000;
+  width: 500px;
+  top: 90px;
+  left: 0px;
+  animation: moveCloud 16s linear infinite;
+}
+
+.cloud-2 {
+  position: absolute;
+  z-index: 2000;
+  width: 500px;
+  top: -100px;
+  left: 20px;
+  animation: moveCloud-2 30s linear infinite;
+  z-index: 3000;
+}
+
+.aircraft-1 {
+  position: absolute;
+  z-index: 2000;
+  width: 300px;
+  top: 90px;
+  left: 0px;
+  animation: movePlane 10s linear infinite;
+}
+
+/* cloud 1 */
+@keyframes moveCloud {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(1920px);
+  }
+}
+
+/* cloud 2 */
+@keyframes moveCloud-2 {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(1920px);
+  }
+}
+
+/* aircraft-1 */
+@keyframes movePlane {
+  0% {
+    transform: translateX(1920px); /* Start the plane off-screen to the right */
+  }
+  100% {
+    transform: translateX(
+      -100%
+    ); /* Move the plane to the left edge of the screen */
+  }
+}
